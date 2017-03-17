@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import Alamofire
+import Unbox
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, Alertable {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("did load")
-    
+        print("magic 1")
+        APIService.sharedInstance.loadData(withSuccess: { (response) in
+//            print(response)
+            print("magic 2")
+            self.showAlertWithMessage(message: "Data loaded")
+            
+        }) { (error) in
+//            print(error)
+        }
+        print("magic 3")
     }
-
+    
 }
 
