@@ -30,9 +30,9 @@ class APIService {
     }
     
     func postData(newPost: Dictionary<String, Any>, withSuccess success: @escaping (String) -> (), failure: @escaping (Error) -> ()) {
-        
         Alamofire.request(Router.MakeNewPost(parameters: newPost)).responseJSON { (response) in
             print(response)
+            
             switch response.result {
             case .success:
                 success("response from success")
