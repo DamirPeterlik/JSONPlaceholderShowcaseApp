@@ -13,7 +13,7 @@ class APIService {
     
     static let sharedInstance = APIService()
     
-    func loadData(withSuccess success: @escaping ([UnboxableDictionary]) -> (), failure: @escaping (Error) -> ()) {
+    func loadData(withSuccess success: @escaping ([User]) -> (), failure: @escaping (Error) -> ()) {
         Alamofire.request(Router.Users).responseJSON { (response) in
             
             switch response.result {
@@ -21,7 +21,13 @@ class APIService {
                 guard let dictionaries = response.result.value as? [UnboxableDictionary] else {
                     return success([])
                 }
-                success(dictionaries)
+                
+                do {
+                    let users: [User] = try unbox(dictionaries: dictionaries)
+                    success(users)
+                } catch {
+                    failure(error)
+                }
             case .failure(let error):
                 failure(error)
                 break
