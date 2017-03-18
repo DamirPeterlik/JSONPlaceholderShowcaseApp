@@ -7,6 +7,7 @@ target 'JSONPlaceholderShowcaseApp' do
 
   # Pods for JSONPlaceholderShowcaseApp
 	pod 'Alamofire', '~> 4.0'
+    pod 'PureLayout'
 	pod 'Unbox'
 
 end
