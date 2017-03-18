@@ -17,34 +17,27 @@ class APIService {
         Alamofire.request(Router.Users).responseJSON { (response) in
             
             switch response.result {
-                
             case .success:
                 guard let dictionaries = response.result.value as? [UnboxableDictionary] else {
                     return success([])
                 }
                 success(dictionaries)
-//                for index in 0...dictionaries.count{
-//                    print(index)
-//                }
-//                for user in dictionaries {
-//                    if let name = user["name"] {
-//                        print("name of user is : \(name)")
-//                    }
-//                    guard let name = user["name"] else {
-//                        return
-//                    }
-//                    print(name)
-//                }
-//                print(dictionaries)
             case .failure(let error):
-                print("error")
                 failure(error)
                 break
-                //            case .success(let data):
-                //                print(data)
-                //
-                //            case .failure(let error):
-                //                print(error)
+            }
+        }
+    }
+    
+    func postData(newPost: Dictionary<String, Any>, withSuccess success: @escaping (String) -> (), failure: @escaping (Error) -> ()) {
+        
+        Alamofire.request(Router.MakeNewPost(parameters: newPost)).responseJSON { (response) in
+            print(response)
+            switch response.result {
+            case .success:
+                success("response from success")
+            case .failure(let error):
+                failure(error)
             }
         }
     }

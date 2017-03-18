@@ -14,16 +14,31 @@ class ViewController: UIViewController, Alertable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("magic 1")
+
         APIService.sharedInstance.loadData(withSuccess: { (response) in
-//            print(response)
-            print("magic 2")
             self.showAlertWithMessage(message: "Data loaded")
-            
+            print(response)
         }) { (error) in
-//            print(error)
+            print(error)
         }
-        print("magic 3")
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print(Date())
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            print(Date())
+            APIService.sharedInstance.postData(newPost: ["title": "Frist Psot", "body": "I iz fisrt", "userId": 1] as Dictionary<String, Any>, withSuccess: { (response) in
+                print(response)
+            }) { (error) in
+                print(error)
+            }
+        }
+        
+        
     }
     
 }
