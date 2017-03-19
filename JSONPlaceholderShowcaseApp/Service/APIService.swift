@@ -13,7 +13,7 @@ class APIService {
     
     static let sharedInstance = APIService()
     
-    func loadData(withSuccess success: @escaping ([User]) -> (), failure: @escaping (Error) -> ()) {
+    func loadUsers(withSuccess success: @escaping ([User]) -> (), failure: @escaping (Error) -> ()) {
         Alamofire.request(Router.Users).responseJSON { (response) in
             
             switch response.result {

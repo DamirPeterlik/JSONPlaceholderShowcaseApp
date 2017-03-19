@@ -16,17 +16,27 @@ private enum RowIdentifier: Int {
 import UIKit
 import Alamofire
 import Unbox
+import PureLayout
 
 class MainTableViewController: UITableViewController {
+    
+    var welcomeView: WelcomeView! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Main"
         tableView.tableFooterView = UIView()
+        setUpWelcomeView()
+    }
+    
+    func setUpWelcomeView() {
+        welcomeView = WelcomeView()
+        welcomeView.showWelcomeView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         
 //        print(Date())
 //        

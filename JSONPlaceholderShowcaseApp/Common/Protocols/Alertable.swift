@@ -18,6 +18,7 @@ extension Alertable where Self: UIViewController {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
+        
     }
     
 }

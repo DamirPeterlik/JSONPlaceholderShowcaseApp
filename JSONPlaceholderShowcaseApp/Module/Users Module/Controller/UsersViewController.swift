@@ -23,26 +23,33 @@ class UsersViewController: UIViewController, Alertable, OrderUserListDelegate {
     
     var vcTitle: String!
     var usersArray: [User] = []
-    let optionsView = EditOptionsView()
+    lazy var optionsView: EditOptionsView = {
+        let options = EditOptionsView()
+        return options
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if vcTitle != nil {
-            title = vcTitle
-        }
-        
-        APIService.sharedInstance.loadData(withSuccess: { (users) in
+        loadUsersFromAPI()
+        setUpUI()
+    }
+    
+    func loadUsersFromAPI() {
+        APIService.sharedInstance.loadUsers(withSuccess: { (users) in
             self.usersArray = users.sorted(by: { $0.name.compare($1.name) == .orderedAscending })
             self.tableView.reloadData()
         }) { (error) in
             print(error)
         }
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        setUpNavBarButton()
     }
 
-    func setUpNavBarButton() {
+    func setUpUI() {
+        if vcTitle != nil {
+            title = vcTitle
+        }
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView()
         let optionsBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handleOptions))
         navigationItem.rightBarButtonItem = optionsBarButtonItem
     }
@@ -63,7 +70,7 @@ class UsersViewController: UIViewController, Alertable, OrderUserListDelegate {
     
 }
 
-extension UsersViewController: UITableViewDataSource {
+extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -82,6 +89,10 @@ extension UsersViewController: UITableViewDataSource {
         } else {
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
