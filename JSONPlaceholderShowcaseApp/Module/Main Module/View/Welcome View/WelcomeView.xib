@@ -33,7 +33,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.27058823529999998" green="0.72156862749999995" blue="0.40784313729999999" alpha="0.3651273544520548" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ggc-Bt-UKp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8cm-Va-Rax"/>
                 <constraint firstItem="ggc-Bt-UKp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8tn-f3-opG"/>

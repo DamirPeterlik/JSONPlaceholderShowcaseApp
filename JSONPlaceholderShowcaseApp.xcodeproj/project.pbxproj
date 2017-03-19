@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D2C07BA1E7ECD9600D32C94 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C07B91E7ECD9600D32C94 /* NotificationManager.swift */; };
 		3D49FA3A1E7C3EB80084F4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FA391E7C3EB80084F4CD /* AppDelegate.swift */; };
 		3D49FA3C1E7C3EB80084F4CD /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FA3B1E7C3EB80084F4CD /* MainTableViewController.swift */; };
 		3D49FA411E7C3EB80084F4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D49FA401E7C3EB80084F4CD /* Assets.xcassets */; };
@@ -24,12 +25,15 @@
 		3DB80C231E7DC75A008F8645 /* EditOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB80C221E7DC75A008F8645 /* EditOptionsTableViewCell.swift */; };
 		3DB80C261E7E93DF008F8645 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB80C251E7E93DF008F8645 /* WelcomeView.xib */; };
 		3DB80C281E7E94F2008F8645 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB80C271E7E94F2008F8645 /* WelcomeView.swift */; };
+		3DB80C2B1E7EBE05008F8645 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB80C2A1E7EBE05008F8645 /* UIColor+Extension.swift */; };
+		3DB80C2E1E7EC0DA008F8645 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB80C2D1E7EC0DA008F8645 /* BaseViewController.swift */; };
 		6C0D101B49C262289BB5B44B /* Pods_JSONPlaceholderShowcaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC872A36D42FCB9871D60697 /* Pods_JSONPlaceholderShowcaseApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0374B4BEF84D8DC07AB50E73 /* Pods-JSONPlaceholderShowcaseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderShowcaseApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSONPlaceholderShowcaseApp/Pods-JSONPlaceholderShowcaseApp.release.xcconfig"; sourceTree = "<group>"; };
 		12683EFB3C6E576D8740F481 /* Pods-JSONPlaceholderShowcaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderShowcaseApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSONPlaceholderShowcaseApp/Pods-JSONPlaceholderShowcaseApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3D2C07B91E7ECD9600D32C94 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		3D49FA361E7C3EB80084F4CD /* JSONPlaceholderShowcaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderShowcaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D49FA391E7C3EB80084F4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D49FA3B1E7C3EB80084F4CD /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		3DB80C221E7DC75A008F8645 /* EditOptionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		3DB80C251E7E93DF008F8645 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
 		3DB80C271E7E94F2008F8645 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		3DB80C2A1E7EBE05008F8645 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		3DB80C2D1E7EC0DA008F8645 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FC872A36D42FCB9871D60697 /* Pods_JSONPlaceholderShowcaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSONPlaceholderShowcaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D2C07B81E7ECD1B00D32C94 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D2C07B91E7ECD9600D32C94 /* NotificationManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3D49FA2D1E7C3EB80084F4CD = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +190,9 @@
 		3D49FA5E1E7C7DFF0084F4CD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3D2C07B81E7ECD1B00D32C94 /* Models */,
+				3DB80C2C1E7EC003008F8645 /* Controllers */,
+				3DB80C291E7EBD9B008F8645 /* Extension */,
 				3D49FA5F1E7C7E1C0084F4CD /* Protocols */,
 			);
 			path = Common;
@@ -243,6 +260,22 @@
 			);
 			name = WelcomeView;
 			path = "Welcome View";
+			sourceTree = "<group>";
+		};
+		3DB80C291E7EBD9B008F8645 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3DB80C2A1E7EBE05008F8645 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3DB80C2C1E7EC003008F8645 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3DB80C2D1E7EC0DA008F8645 /* BaseViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		5D1452086E85F7700B0C3E2C /* Pods */ = {
@@ -392,8 +425,11 @@
 				3D49FA5B1E7C58940084F4CD /* Router.swift in Sources */,
 				3D49FA5D1E7C79AC0084F4CD /* APIService.swift in Sources */,
 				3D49FA701E7DB7EF0084F4CD /* UserTableViewCell.swift in Sources */,
+				3DB80C2E1E7EC0DA008F8645 /* BaseViewController.swift in Sources */,
+				3D2C07BA1E7ECD9600D32C94 /* NotificationManager.swift in Sources */,
 				3D49FA3A1E7C3EB80084F4CD /* AppDelegate.swift in Sources */,
 				3DB80C231E7DC75A008F8645 /* EditOptionsTableViewCell.swift in Sources */,
+				3DB80C2B1E7EBE05008F8645 /* UIColor+Extension.swift in Sources */,
 				3DB80C281E7E94F2008F8645 /* WelcomeView.swift in Sources */,
 				3D49FA611E7C7E6D0084F4CD /* Alertable.swift in Sources */,
 				3D49FA6A1E7D968C0084F4CD /* Address.swift in Sources */,

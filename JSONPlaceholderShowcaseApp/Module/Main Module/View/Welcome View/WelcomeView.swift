@@ -33,6 +33,7 @@ class WelcomeView: UIView {
             
             customView.frame = window.frame
             customView.alpha = 0
+            customView.backgroundColor = UIColor.customGreen
             
             customView.autoSetDimension(.height, toSize: 200)
             customView.autoSetDimension(.width, toSize: 250)

@@ -17,7 +17,7 @@ protocol OrderUserListDelegate: class {
     func orderUserNamesBy(order: Order)
 }
 
-class UsersViewController: UIViewController, Alertable, OrderUserListDelegate {
+class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -60,6 +60,15 @@ class UsersViewController: UIViewController, Alertable, OrderUserListDelegate {
     }
     
     func orderUserNamesBy(order: Order) {
+        
+        NotificationManager.sharedManager.scheduleNotification(inSeconds: 1) { (success) in
+            if success {
+                print("Successfully scheduled notification")
+            } else {
+                print("Error scheduling notification")
+            }
+        }
+        
         if order == .Ascending {
             usersArray = usersArray.sorted(by: { $0.name.compare($1.name) == .orderedAscending })
         } else {

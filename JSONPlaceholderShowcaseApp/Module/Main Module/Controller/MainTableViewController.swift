@@ -37,9 +37,14 @@ class MainTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-//        print(Date())
-//        
+        NotificationManager.sharedManager.requestNotificationPermission { (granted) in
+            if granted {
+                print("nots granted")
+            } else {
+                print("nots not granted")
+            }
+        }
+
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            print(Date())
 //            APIService.sharedInstance.postData(newPost: ["title": "Frist Psot", "body": "I iz fisrt", "userId": 1] as Dictionary<String, Any>, withSuccess: { (response) in
