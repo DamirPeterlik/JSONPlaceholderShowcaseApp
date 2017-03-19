@@ -38,11 +38,17 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
         APIService.sharedInstance.loadUsers(withSuccess: { (users) in
             self.usersArray = users.sorted(by: { $0.name.compare($1.name) == .orderedAscending })
             self.tableView.reloadData()
+            self.triggerNots()
         }) { (error) in
             print(error)
         }
     }
-
+    
+    func triggerNots() {
+        let notName = Notification.Name.init(rawValue: "usersDownloaded")
+        NotificationCenter.default.post(name: notName, object: self.usersArray[0])
+    }
+    
     func setUpUI() {
         if vcTitle != nil {
             title = vcTitle

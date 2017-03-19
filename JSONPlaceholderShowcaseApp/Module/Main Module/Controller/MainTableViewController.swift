@@ -27,6 +27,15 @@ class MainTableViewController: UITableViewController {
         title = "Main"
         tableView.tableFooterView = UIView()
         setUpWelcomeView()
+        notificationPermission()
+        
+        let notif = Notification.Name.init(rawValue: "usersDownloaded")
+        NotificationCenter.default.addObserver(self, selector: #selector(checkNotification(notification:)), name: notif, object: nil)
+        
+    }
+    
+    func checkNotification(notification: Notification) {
+        print("notification - \(notification)")
     }
     
     func setUpWelcomeView() {
@@ -36,14 +45,6 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        NotificationManager.sharedManager.requestNotificationPermission { (granted) in
-            if granted {
-                print("nots granted")
-            } else {
-                print("nots not granted")
-            }
-        }
 
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            print(Date())
@@ -86,6 +87,15 @@ class MainTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func notificationPermission() {
+        NotificationManager.sharedManager.requestNotificationPermission { (granted) in
+            if granted {
+                print("nots granted")
+            } else {
+                print("nots not granted")
+            }
+        }
+    }
     
 }
 

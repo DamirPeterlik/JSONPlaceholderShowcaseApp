@@ -39,10 +39,10 @@ class WelcomeView: UIView {
             customView.autoSetDimension(.width, toSize: 250)
             customView.autoCenterInSuperview()
 
-            UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveLinear, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveLinear, animations: {
                 self.customView.alpha = 1
             }, completion: { (finished) in
-                UIView.animate(withDuration: 0.6, delay: 1.0, options: .curveLinear, animations: {
+                UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveLinear, animations: {
                     self.customView.alpha = 0
                 }, completion:nil)
             })
