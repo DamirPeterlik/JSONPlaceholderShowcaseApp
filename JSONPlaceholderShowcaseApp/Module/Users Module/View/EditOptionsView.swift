@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol OrderUserListDelegate: class {
+    func orderUserNamesBy(order: Order)
+}
+
 class EditOptionsView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     let blackTransView = UIView()
@@ -88,7 +92,9 @@ class EditOptionsView: UIView, UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 1 {
             order = .Descending
         }
-        delegate?.orderUserNamesBy(order: order)
+        if delegate != nil {
+            delegate?.orderUserNamesBy(order: order)
+        }
         handleDismiss()
     }
     

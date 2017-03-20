@@ -13,10 +13,6 @@ enum Order: Int {
     case Descending
 }
 
-protocol OrderUserListDelegate: class {
-    func orderUserNamesBy(order: Order)
-}
-
 class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate {
 
     @IBOutlet weak var tableView: UITableView!
