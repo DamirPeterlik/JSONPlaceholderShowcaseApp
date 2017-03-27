@@ -159,7 +159,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGC-dH-M9t">
-                                                    <rect key="frame" x="8" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="8" y="12" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -196,6 +196,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O36-XN-0Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1862" y="787"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="15T-dI-Y0C">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="ZAY-d0-3kb" customClass="WebViewController" customModule="JSONPlaceholderShowcaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ra0-5J-CjS"/>
+                        <viewControllerLayoutGuide type="bottom" id="icR-f3-Awx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gSf-Pb-efA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00l-n0-cis">
+                                <rect key="frame" x="0.0" y="-44" width="375" height="711"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZAY-d0-3kb" id="E0Z-K9-3EB"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.60706688399999997" blue="0.52881435060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="icR-f3-Awx" firstAttribute="top" secondItem="00l-n0-cis" secondAttribute="bottom" id="0V1-Qq-vjH"/>
+                            <constraint firstAttribute="trailing" secondItem="00l-n0-cis" secondAttribute="trailing" id="5x8-C5-6GA"/>
+                            <constraint firstItem="00l-n0-cis" firstAttribute="top" secondItem="ra0-5J-CjS" secondAttribute="bottom" constant="-64" id="EEJ-SI-B83"/>
+                            <constraint firstItem="00l-n0-cis" firstAttribute="leading" secondItem="gSf-Pb-efA" secondAttribute="leading" id="Gz3-39-qx5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="00l-n0-cis" id="nXw-kj-bnn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Asw-Qi-StA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2746" y="787"/>
         </scene>
     </scenes>
 </document>

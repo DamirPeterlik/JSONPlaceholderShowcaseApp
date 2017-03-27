@@ -21,6 +21,11 @@
 		3D49FA6A1E7D968C0084F4CD /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FA691E7D968C0084F4CD /* Address.swift */; };
 		3D49FA6C1E7D96A40084F4CD /* Geolocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FA6B1E7D96A40084F4CD /* Geolocation.swift */; };
 		3D49FA701E7DB7EF0084F4CD /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FA6F1E7DB7EF0084F4CD /* UserTableViewCell.swift */; };
+		3D6EF6DC1E87F3C100813E97 /* UsersSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6EF6DB1E87F3C100813E97 /* UsersSectionHeaderView.xib */; };
+		3D6EF6DE1E87FC7C00813E97 /* UsersSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EF6DD1E87FC7C00813E97 /* UsersSectionHeaderView.swift */; };
+		3D6EF6E11E88035C00813E97 /* UsersSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EF6E01E88035C00813E97 /* UsersSectionFooterView.swift */; };
+		3D6EF6E31E88036E00813E97 /* UsersSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6EF6E21E88036E00813E97 /* UsersSectionFooterView.xib */; };
+		3D6EF6E51E880ACD00813E97 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EF6E41E880ACD00813E97 /* WebViewController.swift */; };
 		3DB80C211E7DBF81008F8645 /* EditOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB80C201E7DBF81008F8645 /* EditOptionsView.swift */; };
 		3DB80C231E7DC75A008F8645 /* EditOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB80C221E7DC75A008F8645 /* EditOptionsTableViewCell.swift */; };
 		3DB80C261E7E93DF008F8645 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB80C251E7E93DF008F8645 /* WelcomeView.xib */; };
@@ -49,6 +54,11 @@
 		3D49FA691E7D968C0084F4CD /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		3D49FA6B1E7D96A40084F4CD /* Geolocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geolocation.swift; sourceTree = "<group>"; };
 		3D49FA6F1E7DB7EF0084F4CD /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		3D6EF6DB1E87F3C100813E97 /* UsersSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersSectionHeaderView.xib; sourceTree = "<group>"; };
+		3D6EF6DD1E87FC7C00813E97 /* UsersSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSectionHeaderView.swift; sourceTree = "<group>"; };
+		3D6EF6E01E88035C00813E97 /* UsersSectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSectionFooterView.swift; sourceTree = "<group>"; };
+		3D6EF6E21E88036E00813E97 /* UsersSectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersSectionFooterView.xib; sourceTree = "<group>"; };
+		3D6EF6E41E880ACD00813E97 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3DB80C201E7DBF81008F8645 /* EditOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOptionsView.swift; sourceTree = "<group>"; };
 		3DB80C221E7DC75A008F8645 /* EditOptionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		3DB80C251E7E93DF008F8645 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
@@ -220,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				3D49FA641E7D640B0084F4CD /* UsersViewController.swift */,
+				3D6EF6E41E880ACD00813E97 /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -237,6 +248,8 @@
 		3D49FA6D1E7DB7040084F4CD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D6EF6DA1E87F34E00813E97 /* SectionView */,
+				3D6EF6DF1E8802EF00813E97 /* FooterView */,
 				3D49FA6E1E7DB7090084F4CD /* Cells */,
 				3DB80C201E7DBF81008F8645 /* EditOptionsView.swift */,
 			);
@@ -250,6 +263,24 @@
 				3DB80C221E7DC75A008F8645 /* EditOptionsTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		3D6EF6DA1E87F34E00813E97 /* SectionView */ = {
+			isa = PBXGroup;
+			children = (
+				3D6EF6DB1E87F3C100813E97 /* UsersSectionHeaderView.xib */,
+				3D6EF6DD1E87FC7C00813E97 /* UsersSectionHeaderView.swift */,
+			);
+			path = SectionView;
+			sourceTree = "<group>";
+		};
+		3D6EF6DF1E8802EF00813E97 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				3D6EF6E21E88036E00813E97 /* UsersSectionFooterView.xib */,
+				3D6EF6E01E88035C00813E97 /* UsersSectionFooterView.swift */,
+			);
+			path = FooterView;
 			sourceTree = "<group>";
 		};
 		3DB80C241E7E93C0008F8645 /* WelcomeView */ = {
@@ -358,6 +389,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6EF6E31E88036E00813E97 /* UsersSectionFooterView.xib in Resources */,
+				3D6EF6DC1E87F3C100813E97 /* UsersSectionHeaderView.xib in Resources */,
 				3D49FA591E7C47590084F4CD /* Main.storyboard in Resources */,
 				3D49FA411E7C3EB80084F4CD /* Assets.xcassets in Resources */,
 				3D49FA581E7C47590084F4CD /* LaunchScreen.storyboard in Resources */,
@@ -420,6 +453,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6EF6E51E880ACD00813E97 /* WebViewController.swift in Sources */,
+				3D6EF6E11E88035C00813E97 /* UsersSectionFooterView.swift in Sources */,
+				3D6EF6DE1E87FC7C00813E97 /* UsersSectionHeaderView.swift in Sources */,
 				3D49FA3C1E7C3EB80084F4CD /* MainTableViewController.swift in Sources */,
 				3D49FA651E7D640B0084F4CD /* UsersViewController.swift in Sources */,
 				3D49FA5B1E7C58940084F4CD /* Router.swift in Sources */,

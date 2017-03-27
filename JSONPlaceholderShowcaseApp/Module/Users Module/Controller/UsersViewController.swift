@@ -16,7 +16,7 @@ enum Order: Int {
 class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     var vcTitle: String!
     var usersArray: [User] = []
     lazy var optionsView: EditOptionsView = {
@@ -30,10 +30,15 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
         setUpUI()
     }
     
+    deinit {
+        print("UVC Memory to be released soon")
+    }
+    
     func loadUsersFromAPI() {
         APIService.sharedInstance.loadUsers(withSuccess: { (users) in
             self.usersArray = users.sorted(by: { $0.name.compare($1.name) == .orderedAscending })
             self.tableView.reloadData()
+            self.setUpTable()
             self.triggerNots()
         }) { (error) in
             print(error)
@@ -49,11 +54,17 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
         if vcTitle != nil {
             title = vcTitle
         }
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tableFooterView = UIView()
         let optionsBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handleOptions))
         navigationItem.rightBarButtonItem = optionsBarButtonItem
+    }
+    
+    func setUpTable() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        let nibSection = UINib(nibName: "UsersSectionHeaderView", bundle: nil)
+        tableView.register(nibSection, forHeaderFooterViewReuseIdentifier: "UsersSectionHeaderView")
+        let nibFooter = UINib(nibName: "UsersSectionFooterView", bundle: nil)
+        tableView.register(nibFooter, forHeaderFooterViewReuseIdentifier: "UsersSectionFooterView")
     }
     
     func handleOptions() {
@@ -89,6 +100,40 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return usersArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if usersArray.count > 0 {
+            return 60
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if usersArray.count > 0 {
+            let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "UsersSectionHeaderView") as! UsersSectionHeaderView
+            cell.setUpSectionDetails(string: "Title of all titles")
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if usersArray.count > 0 {
+            return 30
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if usersArray.count > 0 {
+            let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "UsersSectionFooterView") as! UsersSectionFooterView
+            cell.setUpFooterDetails(string: "Title of all titles")
+            cell.rootVC = self
+            
+            return cell
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

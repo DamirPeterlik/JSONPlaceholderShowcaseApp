@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UsersSectionFooterView" customModule="JSONPlaceholderShowcaseApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UJ-ye-dxd">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIw-b4-sxH">
+                            <rect key="frame" x="8" y="0.0" width="67" height="30"/>
+                            <state key="normal" title="Safari link"/>
+                            <connections>
+                                <action selector="openURLwithSafariButtonTouched" destination="iN0-l3-epB" eventType="touchUpInside" id="SAR-wt-59L"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxq-6z-nNE">
+                            <rect key="frame" x="275" y="0.0" width="90" height="30"/>
+                            <state key="normal" title="Webview link"/>
+                            <connections>
+                                <action selector="openURLwithWebviewButtonTouched" destination="iN0-l3-epB" eventType="touchUpInside" id="QDn-z6-DOI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.85197797750000004" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="eIw-b4-sxH" firstAttribute="centerY" secondItem="5UJ-ye-dxd" secondAttribute="centerY" id="WFe-4y-1Nf"/>
+                        <constraint firstItem="Vxq-6z-nNE" firstAttribute="centerY" secondItem="5UJ-ye-dxd" secondAttribute="centerY" id="aCz-mb-Vvu"/>
+                        <constraint firstItem="eIw-b4-sxH" firstAttribute="leading" secondItem="5UJ-ye-dxd" secondAttribute="leading" constant="8" id="rd7-cG-r73"/>
+                        <constraint firstAttribute="trailing" secondItem="Vxq-6z-nNE" secondAttribute="trailing" constant="10" id="xgg-st-AGW"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5UJ-ye-dxd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FZK-Xc-jSY"/>
+                <constraint firstAttribute="trailing" secondItem="5UJ-ye-dxd" secondAttribute="trailing" id="MS2-Q0-d6q"/>
+                <constraint firstAttribute="bottom" secondItem="5UJ-ye-dxd" secondAttribute="bottom" id="j1l-Qi-7PM"/>
+                <constraint firstItem="5UJ-ye-dxd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vkv-Pw-3qI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34.5" y="155"/>
+        </view>
+    </objects>
+</document>
