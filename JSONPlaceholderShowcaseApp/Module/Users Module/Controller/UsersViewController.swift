@@ -54,8 +54,13 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
         if vcTitle != nil {
             title = vcTitle
         }
-        let optionsBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handleOptions))
-        navigationItem.rightBarButtonItem = optionsBarButtonItem
+        let optionsBarButtonEdit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handleOptions))
+        let optionsBarButtonFilter = UIBarButtonItem(image: UIImage(named: "menuslider"), style: .done, target: self, action: #selector(handleFilterOptions))
+        navigationItem.rightBarButtonItems = [optionsBarButtonEdit, optionsBarButtonFilter]
+    }
+    
+    func handleFilterOptions() {
+        print("filter touched")
     }
     
     func setUpTable() {
