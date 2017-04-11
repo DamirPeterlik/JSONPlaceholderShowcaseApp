@@ -361,7 +361,7 @@
 				TargetAttributes = {
 					3D49FA351E7C3EB80084F4CD = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = S2CM8WVY23;
+						DevelopmentTeam = JFNBD6A383;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -595,10 +595,10 @@
 			baseConfigurationReference = 12683EFB3C6E576D8740F481 /* Pods-JSONPlaceholderShowcaseApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S2CM8WVY23;
+				DEVELOPMENT_TEAM = JFNBD6A383;
 				INFOPLIST_FILE = "$(SRCROOT)/JSONPlaceholderShowcaseApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dp.JSONPlaceholderShowcaseApp;
+				PRODUCT_BUNDLE_IDENTIFIER = dp.JSONPlaceholderShowcaseAppNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -609,10 +609,10 @@
 			baseConfigurationReference = 0374B4BEF84D8DC07AB50E73 /* Pods-JSONPlaceholderShowcaseApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S2CM8WVY23;
+				DEVELOPMENT_TEAM = JFNBD6A383;
 				INFOPLIST_FILE = "$(SRCROOT)/JSONPlaceholderShowcaseApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dp.JSONPlaceholderShowcaseApp;
+				PRODUCT_BUNDLE_IDENTIFIER = dp.JSONPlaceholderShowcaseAppNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
