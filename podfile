@@ -6,8 +6,9 @@ target 'JSONPlaceholderShowcaseApp' do
   use_frameworks!
 
   # Pods for JSONPlaceholderShowcaseApp
+	pod 'ObjectMapper', '~> 2.2'
 	pod 'Alamofire', '~> 4.0'
-    pod 'PureLayout'
+	pod 'PureLayout'
 	pod 'Unbox'
 
 end
