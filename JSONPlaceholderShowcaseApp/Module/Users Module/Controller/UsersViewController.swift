@@ -35,6 +35,13 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
     }
     
     func loadUsersFromAPI() {
+        
+//        APIService.sharedInstance.loadUsersObjectMapper(withSuccess: { (users) in
+//            print(users)
+//        }) { (error) in
+//            print(error)
+//        }
+        
         APIService.sharedInstance.loadUsers(withSuccess: { (users) in
             self.usersArray = users.sorted(by: { $0.name.compare($1.name) == .orderedAscending })
             self.tableView.reloadData()

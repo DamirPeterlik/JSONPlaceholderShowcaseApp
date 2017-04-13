@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08C047891E9E4A5D00B9C959 /* UserObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C047881E9E4A5D00B9C959 /* UserObjectMapper.swift */; };
+		08C0478B1E9E5AFB00B9C959 /* AddressObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C0478A1E9E5AFB00B9C959 /* AddressObjectMapper.swift */; };
+		08C0478D1E9E623300B9C959 /* GeolocationObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C0478C1E9E623300B9C959 /* GeolocationObjectMapper.swift */; };
 		3D2C07BA1E7ECD9600D32C94 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C07B91E7ECD9600D32C94 /* NotificationManager.swift */; };
 		3D49FA3A1E7C3EB80084F4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FA391E7C3EB80084F4CD /* AppDelegate.swift */; };
 		3D49FA3C1E7C3EB80084F4CD /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FA3B1E7C3EB80084F4CD /* MainTableViewController.swift */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		0374B4BEF84D8DC07AB50E73 /* Pods-JSONPlaceholderShowcaseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderShowcaseApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSONPlaceholderShowcaseApp/Pods-JSONPlaceholderShowcaseApp.release.xcconfig"; sourceTree = "<group>"; };
+		08C047881E9E4A5D00B9C959 /* UserObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserObjectMapper.swift; sourceTree = "<group>"; };
+		08C0478A1E9E5AFB00B9C959 /* AddressObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressObjectMapper.swift; sourceTree = "<group>"; };
+		08C0478C1E9E623300B9C959 /* GeolocationObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationObjectMapper.swift; sourceTree = "<group>"; };
 		12683EFB3C6E576D8740F481 /* Pods-JSONPlaceholderShowcaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderShowcaseApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSONPlaceholderShowcaseApp/Pods-JSONPlaceholderShowcaseApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3D2C07B91E7ECD9600D32C94 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		3D49FA361E7C3EB80084F4CD /* JSONPlaceholderShowcaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderShowcaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,8 +245,11 @@
 			isa = PBXGroup;
 			children = (
 				3D49FA671E7D96620084F4CD /* User.swift */,
+				08C047881E9E4A5D00B9C959 /* UserObjectMapper.swift */,
 				3D49FA691E7D968C0084F4CD /* Address.swift */,
+				08C0478A1E9E5AFB00B9C959 /* AddressObjectMapper.swift */,
 				3D49FA6B1E7D96A40084F4CD /* Geolocation.swift */,
+				08C0478C1E9E623300B9C959 /* GeolocationObjectMapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -453,9 +462,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C047891E9E4A5D00B9C959 /* UserObjectMapper.swift in Sources */,
 				3D6EF6E51E880ACD00813E97 /* WebViewController.swift in Sources */,
 				3D6EF6E11E88035C00813E97 /* UsersSectionFooterView.swift in Sources */,
 				3D6EF6DE1E87FC7C00813E97 /* UsersSectionHeaderView.swift in Sources */,
+				08C0478D1E9E623300B9C959 /* GeolocationObjectMapper.swift in Sources */,
 				3D49FA3C1E7C3EB80084F4CD /* MainTableViewController.swift in Sources */,
 				3D49FA651E7D640B0084F4CD /* UsersViewController.swift in Sources */,
 				3D49FA5B1E7C58940084F4CD /* Router.swift in Sources */,
@@ -463,6 +474,7 @@
 				3D49FA701E7DB7EF0084F4CD /* UserTableViewCell.swift in Sources */,
 				3DB80C2E1E7EC0DA008F8645 /* BaseViewController.swift in Sources */,
 				3D2C07BA1E7ECD9600D32C94 /* NotificationManager.swift in Sources */,
+				08C0478B1E9E5AFB00B9C959 /* AddressObjectMapper.swift in Sources */,
 				3D49FA3A1E7C3EB80084F4CD /* AppDelegate.swift in Sources */,
 				3DB80C231E7DC75A008F8645 /* EditOptionsTableViewCell.swift in Sources */,
 				3DB80C2B1E7EBE05008F8645 /* UIColor+Extension.swift in Sources */,

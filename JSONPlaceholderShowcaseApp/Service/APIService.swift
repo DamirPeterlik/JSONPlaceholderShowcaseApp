@@ -6,12 +6,34 @@
 //  Copyright © 2017 Damir Peterlik. All rights reserved.
 //
 
+import AlamofireObjectMapper
 import Alamofire
 import Unbox
 
 class APIService {
     
     static let sharedInstance = APIService()
+    
+    func loadUsersObjectMapper(withSuccess success: @escaping ([UserObjectMapper]) -> (), failure: @escaping (Error) -> ()) {
+        Alamofire.request(Router.Users).responseArray { (response: DataResponse<[UserObjectMapper]>) in
+            
+            switch response.result {
+            case .success:
+                guard let usersResponse = response.result.value else {
+                    return success([])
+                }
+                var users: [UserObjectMapper] = []
+                for user in usersResponse {
+                    users.append(user)
+                }
+                success(users)
+                
+            case .failure(let error):
+                failure(error)
+                break
+            }
+        }
+    }
     
     func loadUsers(withSuccess success: @escaping ([User]) -> (), failure: @escaping (Error) -> ()) {
         Alamofire.request(Router.Users).responseJSON { (response) in

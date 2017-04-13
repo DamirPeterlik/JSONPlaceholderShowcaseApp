@@ -27,10 +27,10 @@ class UsersSectionFooterView: UITableViewHeaderFooterView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         print("init coder footer view")
+        contentView.backgroundColor = UIColor.cyan
     }
     
     func setUpFooterDetails(string: String) {
-        
     }
     
     deinit {
