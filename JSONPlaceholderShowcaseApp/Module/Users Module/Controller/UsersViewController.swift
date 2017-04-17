@@ -19,6 +19,8 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
 
     var vcTitle: String!
     var usersArray: [User] = []
+    var sectionUserLetters: [String] = []
+    var contacts = [String : [User]]()
     lazy var optionsView: EditOptionsView = {
         let options = EditOptionsView()
         return options
@@ -44,9 +46,9 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
         
         APIService.sharedInstance.loadUsers(withSuccess: { (users) in
             self.usersArray = users.sorted(by: { $0.name.compare($1.name) == .orderedAscending })
-            self.tableView.reloadData()
             self.setUpTable()
             self.triggerNots()
+            self.tableView.reloadData()
         }) { (error) in
             print(error)
         }
@@ -77,6 +79,12 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
         tableView.register(nibSection, forHeaderFooterViewReuseIdentifier: "UsersSectionHeaderView")
         let nibFooter = UINib(nibName: "UsersSectionFooterView", bundle: nil)
         tableView.register(nibFooter, forHeaderFooterViewReuseIdentifier: "UsersSectionFooterView")
+        
+        let (letters, contactUsers) = sectionUserLetters.getFirstCharactersFromUsersToLetterArrayAndLetterUserDict(namesArray: usersArray)
+        
+        sectionUserLetters = letters
+        contacts = contactUsers
+        
     }
     
     func handleOptions() {
@@ -99,6 +107,7 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
         } else {
             usersArray = usersArray.sorted(by: { $0.name.compare($1.name) == .orderedDescending })
         }
+        self.setUpTable()
         tableView.reloadData()
     }
     
@@ -107,16 +116,22 @@ class UsersViewController: BaseViewController, Alertable, OrderUserListDelegate 
 extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if sectionUserLetters.first != nil {
+            return sectionUserLetters.count
+        }
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersArray.count
+        if contacts.count > 0 {
+            return (contacts[sectionUserLetters[section]]?.count)!
+        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if usersArray.count > 0 {
-            return 60
+        if contacts.count > 0 {
+            return 40
         }
         return 0
     }
@@ -124,14 +139,14 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if usersArray.count > 0 {
             let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "UsersSectionHeaderView") as! UsersSectionHeaderView
-            cell.setUpSectionDetails(string: "Title of all titles")
+            cell.setUpSectionDetails(string: sectionUserLetters[section])
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if usersArray.count > 0 {
+        if contacts.count > 0 {
             return 30
         }
         return 0
@@ -140,7 +155,7 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if usersArray.count > 0 {
             let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "UsersSectionFooterView") as! UsersSectionFooterView
-            cell.setUpFooterDetails(string: "Title of all titles")
+            cell.setUpFooterDetails(string: "Footer Title")
             cell.rootVC = self
             
             return cell
@@ -149,17 +164,27 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let user = usersArray[indexPath.row]
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as? UserTableViewCell {
-            cell.configureCellWith(user: user)
-            return cell
-        } else {
-            return UITableViewCell()
+        if contacts.count > 0 {
+            let contact = contacts[sectionUserLetters[indexPath.section]]
+            let user = contact?[indexPath.row]
+            
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as? UserTableViewCell {
+                cell.configureCellWith(user: user!)
+                return cell
+            }
         }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "UserDetailsStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        
+        let contact = contacts[sectionUserLetters[indexPath.section]]
+        vc.user = contact?[indexPath.row]
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: vcTitle, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
